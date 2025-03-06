@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface FormattedDateProps {
@@ -7,7 +8,7 @@ interface FormattedDateProps {
 const FormattedDate: React.FC<FormattedDateProps> = ({ date }) => {
   return (
     <time dateTime={date.toISOString()}>
-      {date.toLocaleDateString('en-us', {
+      {date.toLocaleDateString('pt-BR', {
         year: 'numeric',
         month: 'short',
         day: 'numeric',
@@ -16,4 +17,4 @@ const FormattedDate: React.FC<FormattedDateProps> = ({ date }) => {
   );
 };
 
-export default FormattedDate; 
+export default FormattedDate;
