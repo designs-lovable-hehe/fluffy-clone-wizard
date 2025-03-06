@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiCalendar, FiMap, FiTrendingUp, FiSearch } from 'react-icons/fi';
@@ -10,9 +11,7 @@ const HeroSection: React.FC = () => {
   });
 
   return (
-    <section ref={ref} className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-primary/5 to-accent/5">
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-      
+    <section ref={ref} className="relative min-h-[90vh] flex items-center bg-white">
       <div className="container mx-auto px-4 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -36,16 +35,16 @@ const HeroSection: React.FC = () => {
               <input
                 type="text"
                 placeholder="Buscar eventos..."
-                className="input pl-12 pr-4 py-4 w-full text-lg"
+                className="w-full px-12 py-4 border border-gray-200 rounded-full text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary/20"
               />
               <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl" />
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <button className="btn-primary">
+              <button className="bg-accent text-white px-8 py-3 rounded-full hover:bg-accent/90 transition-colors font-medium">
                 Explorar Eventos
               </button>
-              <button className="btn-secondary">
+              <button className="border border-primary text-primary px-8 py-3 rounded-full hover:bg-primary/5 transition-colors font-medium">
                 Criar Evento
               </button>
             </div>
@@ -65,7 +64,7 @@ const HeroSection: React.FC = () => {
           >
             <div className="relative z-10">
               <EventCard
-                image="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14"
+                image="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3"
                 title="Festival de Música 2024"
                 date="20-22 Jun"
                 location="São Paulo, SP"
@@ -73,18 +72,15 @@ const HeroSection: React.FC = () => {
                 className="transform rotate-3 hover:rotate-0"
               />
               <EventCard
-                image="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4"
+                image="https://images.unsplash.com/photo-1540575467063-178a50c2df87"
                 title="Show do Metallica"
                 date="15 Jul"
                 location="Rio de Janeiro, RJ"
                 price="R$ 350"
                 className="-mt-8 -ml-8 transform -rotate-3 hover:rotate-0"
+                available={true}
               />
             </div>
-
-            {/* Decorative Elements */}
-            <div className="absolute top-0 right-0 w-72 h-72 bg-accent/20 rounded-full filter blur-3xl opacity-20 -z-10"></div>
-            <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary/20 rounded-full filter blur-3xl opacity-20 -z-10"></div>
           </motion.div>
         </div>
       </div>
@@ -95,7 +91,7 @@ const HeroSection: React.FC = () => {
 function Stat({ icon, number, label }: { icon: React.ReactNode; number: string; label: string }) {
   return (
     <div className="text-center">
-      <div className="text-accent flex justify-center mb-2 text-2xl">{icon}</div>
+      <div className="text-primary flex justify-center mb-2 text-2xl">{icon}</div>
       <div className="text-2xl font-bold">{number}</div>
       <div className="text-gray-600">{label}</div>
     </div>
@@ -108,7 +104,8 @@ function EventCard({
   date, 
   location, 
   price, 
-  className = "" 
+  className = "",
+  available = false
 }: { 
   image: string;
   title: string;
@@ -116,33 +113,36 @@ function EventCard({
   location: string;
   price: string;
   className?: string;
+  available?: boolean;
 }) {
   return (
-    <div className={`card p-4 transition-all duration-300 ${className}`}>
+    <div className={`bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 ${className}`}>
       <img
         src={image}
         alt={title}
-        className="rounded-lg w-full h-48 object-cover"
+        className="w-full h-48 object-cover"
       />
-      <div className="mt-4 space-y-2">
+      <div className="p-4 space-y-2">
         <h3 className="text-xl font-semibold">{title}</h3>
-        <div className="flex items-center text-gray-600">
+        <div className="flex items-center text-gray-600 text-sm">
           <FiCalendar className="mr-2" />
           <span>{date}</span>
         </div>
-        <div className="flex items-center text-gray-600">
+        <div className="flex items-center text-gray-600 text-sm">
           <FiMap className="mr-2" />
           <span>{location}</span>
         </div>
         <div className="flex justify-between items-center pt-2">
           <span className="text-accent font-medium">{price}</span>
-          <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
-            Disponível
-          </span>
+          {available && (
+            <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs">
+              Disponível
+            </span>
+          )}
         </div>
       </div>
     </div>
   );
 }
 
-export default HeroSection; 
+export default HeroSection;
