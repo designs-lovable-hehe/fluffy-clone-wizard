@@ -30,7 +30,7 @@ export default {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: '#8A3FFC', // Main purple color from the image
+          DEFAULT: '#8A3FFC', // Exact purple color from the image
           foreground: 'hsl(var(--primary-foreground))'
         },
         secondary: {
@@ -46,7 +46,7 @@ export default {
           foreground: 'hsl(var(--muted-foreground))'
         },
         accent: {
-          DEFAULT: '#FF3366', // Pink accent color from the image
+          DEFAULT: '#FF2D6C', // Exact pink accent color from the image for buttons
           foreground: 'hsl(var(--accent-foreground))'
         },
         popover: {
