@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface HeaderLinkProps {
@@ -13,13 +12,10 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({ href, className, children }) =>
   const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
 
   return (
-    <a 
-      href={href} 
-      className={`${className || ''} ${isActive ? 'text-primary font-medium' : 'text-gray-600 hover:text-primary'}`}
-    >
+    <a href={href} className={`${className} ${isActive ? 'active' : ''}`}>
       {children}
     </a>
   );
 };
 
-export default HeaderLink;
+export default HeaderLink; 
