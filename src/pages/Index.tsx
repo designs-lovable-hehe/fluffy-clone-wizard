@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
@@ -9,7 +10,7 @@ import Footer from '../components/Footer';
 
 const HomePage: React.FC = () => {
   return (
-    <div>
+    <div className="min-h-screen bg-background">
       <Navbar />
       <main>
         <HeroSection />
