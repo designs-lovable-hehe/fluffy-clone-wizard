@@ -69,7 +69,7 @@ const HeroSection: React.FC = () => {
                 date="20-22 Jun"
                 location="São Paulo, SP"
                 price="R$ 150"
-                className="transform rotate-3 hover:rotate-0"
+                className="transform"
               />
               <EventCard
                 image="https://images.unsplash.com/photo-1540575467063-178a50c2df87"
@@ -77,7 +77,7 @@ const HeroSection: React.FC = () => {
                 date="15 Jul"
                 location="Rio de Janeiro, RJ"
                 price="R$ 350"
-                className="-mt-8 -ml-8 transform -rotate-3 hover:rotate-0"
+                className="-mt-8"
                 available={true}
               />
             </div>
