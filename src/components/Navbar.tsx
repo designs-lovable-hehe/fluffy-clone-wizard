@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX } from 'react-icons/fi';
@@ -26,7 +27,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
+            <span className="text-2xl font-bold text-primary">
               Ingresso Nitro
             </span>
           </div>
@@ -36,7 +37,7 @@ const Navbar: React.FC = () => {
             <NavLink href="#features">Recursos</NavLink>
             <NavLink href="#events">Eventos</NavLink>
             <NavLink href="#testimonials">Depoimentos</NavLink>
-            <button className="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition-colors">
+            <button className="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition-colors">
               Criar Evento
             </button>
           </div>
@@ -46,6 +47,7 @@ const Navbar: React.FC = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-gray-600 hover:text-gray-900 p-2"
+              aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
             >
               {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
@@ -66,7 +68,7 @@ const Navbar: React.FC = () => {
               <MobileNavLink href="#features">Recursos</MobileNavLink>
               <MobileNavLink href="#events">Eventos</MobileNavLink>
               <MobileNavLink href="#testimonials">Depoimentos</MobileNavLink>
-              <button className="w-full bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition-colors mt-4">
+              <button className="w-full bg-primary text-white px-6 py-3 rounded-full hover:bg-primary/90 transition-colors mt-4">
                 Criar Evento
               </button>
             </div>
@@ -81,7 +83,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
   return (
     <a
       href={href}
-      className="text-gray-600 hover:text-purple-600 transition-colors font-medium"
+      className="text-gray-600 hover:text-primary transition-colors font-medium"
     >
       {children}
     </a>
@@ -92,11 +94,11 @@ function MobileNavLink({ href, children }: { href: string; children: React.React
   return (
     <a
       href={href}
-      className="block text-gray-600 hover:text-purple-600 transition-colors font-medium py-2"
+      className="block text-gray-600 hover:text-primary transition-colors font-medium py-2"
     >
       {children}
     </a>
   );
 }
 
-export default Navbar; 
+export default Navbar;

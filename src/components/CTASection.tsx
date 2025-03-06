@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -10,7 +11,7 @@ const CTASection: React.FC = () => {
   });
 
   return (
-    <section className="py-20 bg-gradient-to-br from-purple-600 to-blue-500">
+    <section className="py-20 bg-gradient-to-br from-primary to-primary/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -32,11 +33,11 @@ const CTASection: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <button className="bg-white text-purple-600 px-8 py-4 rounded-full hover:bg-gray-100 transition-colors text-lg font-medium flex items-center justify-center">
+            <button className="bg-white text-primary px-8 py-4 rounded-full hover:bg-gray-100 transition-colors text-lg font-medium flex items-center justify-center">
               Começar Gratuitamente
               <FiArrowRight className="ml-2" />
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white hover:text-purple-600 transition-colors text-lg font-medium">
+            <button className="border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white hover:text-primary transition-colors text-lg font-medium">
               Falar com Especialista
             </button>
           </motion.div>
@@ -55,4 +56,4 @@ const CTASection: React.FC = () => {
   );
 };
 
-export default CTASection; 
+export default CTASection;

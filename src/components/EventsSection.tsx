@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -15,23 +16,24 @@ const EventsSection: React.FC = () => {
       image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       date: "20-22 Jun",
       location: "São Paulo, SP",
-      price: "R$ 150,00",
+      price: "R$ 150",
       category: "Música",
     },
     {
-      title: "Conferência Tech Summit",
+      title: "Show do Metallica",
       image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       date: "15 Jul",
       location: "Rio de Janeiro, RJ",
-      price: "R$ 280,00",
-      category: "Tecnologia",
+      price: "R$ 350",
+      category: "Música",
+      available: true
     },
     {
       title: "Workshop de Fotografia",
       image: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       date: "10 Ago",
       location: "Curitiba, PR",
-      price: "R$ 90,00",
+      price: "R$ 90",
       category: "Arte",
     },
   ];
@@ -48,7 +50,7 @@ const EventsSection: React.FC = () => {
         >
           <h2 className="text-4xl font-bold mb-4">
             Eventos em{" "}
-            <span className="bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
+            <span className="text-primary">
               Destaque
             </span>
           </h2>
@@ -72,7 +74,7 @@ const EventsSection: React.FC = () => {
                   alt={event.title}
                   className="w-full h-48 object-cover"
                 />
-                <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-medium text-purple-600">
+                <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-medium text-primary">
                   {event.category}
                 </div>
               </div>
@@ -92,12 +94,19 @@ const EventsSection: React.FC = () => {
                 </div>
 
                 <div className="flex justify-between items-center">
-                  <span className="text-purple-600 font-semibold text-lg">
+                  <span className="text-accent font-semibold text-lg">
                     {event.price}
                   </span>
-                  <button className="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition-colors">
-                    Comprar
-                  </button>
+                  <div className="flex items-center gap-2">
+                    {event.available && (
+                      <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs">
+                        Disponível
+                      </span>
+                    )}
+                    <button className="bg-primary text-white px-4 py-2 rounded-full hover:bg-primary/90 transition-colors">
+                      Comprar
+                    </button>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -110,7 +119,7 @@ const EventsSection: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-16 text-center"
         >
-          <button className="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-full hover:bg-purple-50 transition-colors text-lg font-medium">
+          <button className="border-2 border-primary text-primary px-8 py-4 rounded-full hover:bg-primary/5 transition-colors text-lg font-medium">
             Ver Todos os Eventos
           </button>
         </motion.div>
@@ -119,4 +128,4 @@ const EventsSection: React.FC = () => {
   );
 };
 
-export default EventsSection; 
+export default EventsSection;
