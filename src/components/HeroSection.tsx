@@ -2,7 +2,7 @@ import React from 'react';
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="bg-gray-50 text-gray-800 py-16 text-center">
+    <section className="bg-gradient-to-br from-white to-gray-100 text-gray-800 py-16 text-center">
       <h1 className="text-5xl font-bold text-pink-500 mb-4">
         Descubra eventos <span className="text-black">extraordinários</span> perto de você
       </h1>
@@ -13,7 +13,7 @@ const HeroSection: React.FC = () => {
         <button className="bg-pink-500 text-white py-3 px-6 rounded-full hover:bg-pink-600 transition">
           Explorar Eventos
         </button>
-        <button className="border-2 border-pink-500 text-pink-500 py-3 px-6 rounded-full hover:bg-pink-500 hover:text-white transition">
+        <button className="bg-white border-2 border-pink-500 text-pink-500 py-3 px-6 rounded-full hover:bg-pink-500 hover:text-white transition">
           Criar Evento
         </button>
       </div>
